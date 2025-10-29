@@ -1,0 +1,39 @@
+{
+  "ID": "7Q5pRIBIG4lWHWdGuh0ivdNYOeEbNZFxuz0v3PsfR6g=",
+  "Version": 2.0,
+  "BaseMathDefine": null,
+  "BaseStart": null,
+  "BaseObjectSingle": null,
+  "BaseObjectMulti": null,
+  "SubFlowStart": [
+    {
+      "Name": "CloseStop",
+      "ParentNode": "",
+      "ChildNode": "",
+      "ReplaceName": "CloseStop",
+      "InitValue": "YES",
+      "NodeType": "Start",
+      "StickSpeed": "5",
+      "Trialed": "False",
+      "UpdateFlag": "",
+      "ObjectNode": {
+        "DIOData": [],
+        "CameraLightOnOff": null,
+        "AIOData": [],
+        "MathData": []
+      },
+      "SubFlowName": "CloseStop",
+      "ThreadName": "",
+      "Version": null,
+      "NonPauseFlag": false,
+      "NoIOInitial": false,
+      "Tag": "CloseStop",
+      "Attribute": 0,
+      "EnableBlendingSetCmd": false,
+      "EnableBusyLoopOptimization": false,
+      "EnablePayloadMonitor": false,
+      "PayloadMonitorSensitivity": "60"
+    }
+  ],
+  "MultiThreadStart": null
+}
