@@ -1,0 +1,39 @@
+{
+  "ID": "V4SSr5zwaRaMZ+fYQlFzs5Xbqi4RYOHiWiGLfKjekQ0=",
+  "Version": 2.0,
+  "BaseMathDefine": null,
+  "BaseStart": null,
+  "BaseObjectSingle": null,
+  "BaseObjectMulti": null,
+  "SubFlowStart": [
+    {
+      "Name": "ErrorStop",
+      "ParentNode": "",
+      "ChildNode": "",
+      "ReplaceName": "ErrorStop",
+      "InitValue": "YES",
+      "NodeType": "Start",
+      "StickSpeed": "5",
+      "Trialed": "False",
+      "UpdateFlag": "",
+      "ObjectNode": {
+        "DIOData": [],
+        "CameraLightOnOff": null,
+        "AIOData": [],
+        "MathData": []
+      },
+      "SubFlowName": "ErrorStop",
+      "ThreadName": "",
+      "Version": null,
+      "NonPauseFlag": false,
+      "NoIOInitial": false,
+      "Tag": "ErrorStop",
+      "Attribute": 0,
+      "EnableBlendingSetCmd": false,
+      "EnableBusyLoopOptimization": false,
+      "EnablePayloadMonitor": false,
+      "PayloadMonitorSensitivity": "60"
+    }
+  ],
+  "MultiThreadStart": null
+}

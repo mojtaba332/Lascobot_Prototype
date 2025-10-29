@@ -1,0 +1,26 @@
+<Root ID="IYap+EOFYAoQls4YoKSAKhoqCZZzKNwHXrb8t2ujdK0=">
+  <Version>2.00</Version>
+  <Settings>
+    <ProjectType>Flow</ProjectType>
+  </Settings>
+  <CreateDate>2025-10-29T11:55:21.0920541Z</CreateDate>
+  <ModifyDate>2025-10-29T12:22:43.4578677Z</ModifyDate>
+  <NameSpace Name="Y_Richtingscontrole">
+    <DatFile>
+      <Main>Y_Richtingscontrole\Y_Richtingscontrole.dat</Main>
+      <Dynamic>Y_Richtingscontrole\Y_Richtingscontrole.dym</Dynamic>
+    </DatFile>
+    <FlowFile>
+      <Main>Y_Richtingscontrole\Y_Richtingscontrole.flow</Main>
+      <Subflow>Y_Richtingscontrole\CloseStop.flow</Subflow>
+      <Subflow>Y_Richtingscontrole\ErrorStop.flow</Subflow>
+    </FlowFile>
+    <ScriptFile />
+    <CommentFile>
+      <File>Y_Richtingscontrole\Y_Richtingscontrole.cmt</File>
+    </CommentFile>
+    <CustomNodeDataFile>
+      <File>Y_Richtingscontrole\Y_Richtingscontrole.cst</File>
+    </CustomNodeDataFile>
+  </NameSpace>
+</Root>

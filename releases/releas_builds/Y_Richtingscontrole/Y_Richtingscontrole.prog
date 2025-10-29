@@ -1,0 +1,117 @@
+// Version: 2.22.4200.0-5.0100-Simulator-TM12S
+// ID1: CPhMEX6GW+chXf7prnD2ycIOX/yZnGn2WVbyT27qVdQ=
+// ID2: 4RRvmo1pNEt+so3YEvUi5/U8+iEohHunpNfNe5f0jAM=
+//
+namespace Y_Richtingscontrole
+define
+{
+   ModbusTCP localhost = 127.0.0.1,502,10000
+}
+main //Main Program Entry Point
+{
+   r6->SignalInitialize
+   r6->Enable_BlendingIO = 0,3
+   r6->Enable_BlendingIO = 1,4
+   r6->ResetBase
+   r6->SyncTCP
+   r6->SetPTPSpeed = 100
+   r6->SetXYZSpeed = 100
+   r6->PayloadMonitor = false,60
+
+   viewer->Reset
+   viewer->SetOperationScene = ""
+   viewer->BaseUpdate
+
+   calljump "Start"
+}
+closestop //Project Stop without Error
+{
+
+}
+errorstop //Project Stop with Error
+{
+
+}
+
+function:Start
+{
+   r6->milestone(0)
+   SetAccTable() // No acc table setting in project, use default.
+
+   callback "P1",true,true
+}
+
+
+function:Script1
+{
+   r6->milestone(1)
+
+   Script1_TextApi()
+
+}
+void Script1_TextApi()
+{
+// === RICHTINGEN TEST ===
+// Zorg dat P1 een geldig startpunt heeft (bijv. via Point Manager)
+
+Display("STARTTEST: Y+, Y-")
+WaitFor(1000)
+
+// --- Store starting position ---
+float y_start = Point["P1"].Value[1]
+
+// --- Move Y+ ---
+Display("Beweeg Y+ (links)")
+Point["P1"].Value[1] = y_start + 20
+PTP("CPP", Point["P1"].Value, 10, 200, 0, false)
+WaitFor(1500)
+float y_after_plus = Point["P1"].Value[1]
+
+// --- Move Y- ---
+Display("Beweeg Y- (rechts)")
+Point["P1"].Value[1] = y_start - 20
+PTP("CPP", Point["P1"].Value, 10, 200, 0, false)
+WaitFor(1500)
+float y_after_minus = Point["P1"].Value[1]
+
+// --- Return to start ---
+Display("Ga terug naar startpositie")
+Point["P1"].Value[1] = y_start
+PTP("CPP", Point["P1"].Value, 10, 200, 0, false)
+WaitFor(1000)
+
+// --- Calculate movements ---
+float move_plus = y_after_plus - y_start
+float move_minus = y_after_minus - y_after_plus
+float total_distance = abs(move_plus) + abs(move_minus)
+
+// --- Final display: all in one ---
+
+string result = "=== RESULTATEN Y-RICHTING TEST ===" + newline + "Startpositie Y: " + y_start + newline +"Na Y+ beweging: " + y_after_plus + newline +"Na Y- beweging: " + y_after_minus + newline +"Totale afstand verplaatst: " + total_distance + " mm" + newline +"=============================="
+
+Display(result)
+
+}
+
+function:P1
+{
+   r6->milestone(2)
+   if (r6->ChangeBase->["RobotBase"] == false)
+   {
+      TriggerSystemError("P1 change base error.")
+      exit
+   }
+   if (r6->ChangeTCP->["RobotEndFlange"] == false)
+   {
+      TriggerSystemError("P1 change TCP error.")
+      exit
+   }
+   r6->SetMotionBlend = 0
+   r6->SetSpeedMode = -3   // speed by acc table
+   r6->PTP = r6->GetMotionParameters("P1",10)
+   r6->SetMotionBlend = 0
+   r6->WaitBufferEmpty
+   calljump "Script1"
+}
+
+
