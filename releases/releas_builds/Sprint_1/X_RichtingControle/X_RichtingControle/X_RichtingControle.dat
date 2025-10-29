@@ -1,0 +1,12 @@
+<Root ID="rsuaVh7LS4GRWYQbdD3y22KQE848O3o4pGua4IMhS24=">
+  <Version>2.00</Version>
+  <RobotPoints>
+    <Point name="P1" coordinate="625.5003,-181.79997,716.3466,180,-0,90" joint_angle="-0,-3.2398772,87.74149,5.4983854,90,-0" tool_mode="625.5003,-181.79997,716.3466,180,-0,90" base="RobotBase" tcp="RobotEndFlange" type="R" tag="" robot_model="TMAB-130050100CAM0501000" />
+  </RobotPoints>
+  <RobotBases>
+    <Base name="RobotBase" basedata="0,0,0,0,0,0" type="R" tag="" />
+  </RobotBases>
+  <VirtualTCP />
+  <FineTuneVariable />
+  <OperationScene Name="" />
+</Root>
