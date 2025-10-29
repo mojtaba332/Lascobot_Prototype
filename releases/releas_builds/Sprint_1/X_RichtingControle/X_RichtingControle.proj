@@ -1,0 +1,26 @@
+<Root ID="tUBiCC2sV0006X3PgxDKXdf/1psueZx9iOwz1Q0WVaQ=">
+  <Version>2.00</Version>
+  <Settings>
+    <ProjectType>Flow</ProjectType>
+  </Settings>
+  <CreateDate>2025-10-29T11:55:36.0585676Z</CreateDate>
+  <ModifyDate>2025-10-29T12:38:31.4561324Z</ModifyDate>
+  <NameSpace Name="X_RichtingControle">
+    <DatFile>
+      <Main>X_RichtingControle\X_RichtingControle.dat</Main>
+      <Dynamic>X_RichtingControle\X_RichtingControle.dym</Dynamic>
+    </DatFile>
+    <FlowFile>
+      <Main>X_RichtingControle\X_RichtingControle.flow</Main>
+      <Subflow>X_RichtingControle\CloseStop.flow</Subflow>
+      <Subflow>X_RichtingControle\ErrorStop.flow</Subflow>
+    </FlowFile>
+    <ScriptFile />
+    <CommentFile>
+      <File>X_RichtingControle\X_RichtingControle.cmt</File>
+    </CommentFile>
+    <CustomNodeDataFile>
+      <File>X_RichtingControle\X_RichtingControle.cst</File>
+    </CustomNodeDataFile>
+  </NameSpace>
+</Root>
